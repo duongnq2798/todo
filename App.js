@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Keyboard,
 } from 'react-native';
+import TaskItem from './TaskItem';
 import {data} from './data';
 import styles from './styles';
 
@@ -20,6 +21,7 @@ const App = () => {
       return task.id == id ? {...task, complete: !task.complete} : {...task};
     });
     setToDoList(mapped);
+    console.log('Cha');
   };
 
   const addTask = (item) => {
@@ -55,19 +57,25 @@ const App = () => {
       <View style={styles.container}>
         {toDoList.map((item, index) => {
           return (
-            <TouchableOpacity
-              activeOpacity={0.6}
-              onPress={() => {
-                handleToggle(item.id);
-              }}
-              style={{width: 200}}>
-              <Text style={styles.titleTodoItem}>{item.task}</Text>
-              {item.complete ? (
-                <View style={styles.complete}></View>
-              ) : (
-                <View></View>
-              )}
-            </TouchableOpacity>
+            // <TouchableOpacity
+            //   activeOpacity={0.6}
+            //   onPress={() => {
+            //     handleToggle(item.id);
+            //   }}
+            //   style={{width: 200}}>
+            //   <Text style={styles.titleTodoItem}>{item.task}</Text>
+            //   {item.complete ? (
+            //     <View style={styles.complete}></View>
+            //   ) : (
+            //     <View></View>
+            //   )}
+            // </TouchableOpacity>
+            <TaskItem
+              toggleId={item.id}
+              title={item.task}
+              completed={item.complete}
+              handleToggle={handleToggle}
+            />
           );
         })}
       </View>
