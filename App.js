@@ -9,6 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 import TaskItem from './TaskItem';
+import AddButton from './AddButton';
 import {data} from './data';
 import styles from './styles';
 
@@ -21,7 +22,6 @@ const App = () => {
       return task.id == id ? {...task, complete: !task.complete} : {...task};
     });
     setToDoList(mapped);
-    console.log('Cha');
   };
 
   const addTask = (item) => {
@@ -46,14 +46,7 @@ const App = () => {
         onChangeText={(item) => setAddItem(item)}
         onSubmitEditing={Keyboard.dismiss}
       />
-      <TouchableOpacity
-        onPress={() => {
-          addTask(addItem);
-        }}
-        style={styles.submit}>
-        <Text style={styles.buttonAdd}>Add</Text>
-      </TouchableOpacity>
-
+      <AddButton addTask={addTask} addItem={addItem} title="Add Item" />
       <View style={styles.container}>
         {toDoList.map((item, index) => {
           return (
