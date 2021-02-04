@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   titleApp: {fontSize: 20, marginVertical: 20, textAlign: 'center'},
+  buttonAdd: {color: 'white', fontSize: 20},
   addTask: {
     borderRadius: 5,
     borderColor: 'blue',

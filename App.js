@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -34,7 +34,7 @@ const App = () => {
   };
 
   return (
-    <View>
+    <ScrollView>
       <StatusBar backgroundColor="blue" />
       <Text style={styles.titleApp}>ToDo List</Text>
       <TextInput
@@ -49,8 +49,9 @@ const App = () => {
           addTask(addItem);
         }}
         style={styles.submit}>
-        <Text style={{color: 'white', fontSize: 20}}>Add</Text>
+        <Text style={styles.buttonAdd}>Add</Text>
       </TouchableOpacity>
+
       <View style={styles.container}>
         {toDoList.map((item, index) => {
           return (
@@ -70,7 +71,7 @@ const App = () => {
           );
         })}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
